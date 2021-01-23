@@ -10,7 +10,7 @@ public class AlertWindow {
 	
 	public static void main(String[]args)
 	{
-		System.setProperty("webdriver.chrome.driver", "./drivers/geckodriver.exe");
+		System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
 		WebDriver fDriver = new FirefoxDriver();
 		fDriver.get("https://demoqa.com/");
 		fDriver.manage().window().maximize();
