@@ -16,7 +16,7 @@ public class DriverTest extends BaseTest {
 	public static Integer a,b;
 	static int finalprice, Totalprice = 0;
 	
-	@Test
+	@Test(priority=1)
 	public void testMethod() throws Exception {
 		
 		for (int i=0; i<BaseTest.totalprod; i++)
@@ -58,4 +58,5 @@ public class DriverTest extends BaseTest {
 			
 	
 	}
+	
 }

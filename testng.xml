@@ -9,6 +9,7 @@
   <parameter name="testerSign" value="SS"/>
     <classes>
       <class name="com.shopping.ShoppingAppFrameWork.DriverTest"/>
+      <class name="com.shopping.ShoppingAppFrameWork.AlertWindow"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

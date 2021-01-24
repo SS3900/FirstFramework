@@ -1,17 +1,15 @@
 package com.shopping.ShoppingAppFrameWork;
 
-import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.touch.ScrollAction;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class AlertWindow {
 
@@ -22,11 +20,12 @@ public class AlertWindow {
 		  return element;
 	  }
 	
-	public static void main(String[]args)
+	@Test(priority=2)
+	public void newPage()
 	{
 		System.setProperty("webdriver.gecko.driver", "./drivers/geckodriver.exe");
 		WebDriver fDriver = new FirefoxDriver();
-		fDriver.get("https://demoqa.com/");
+		fDriver.get(System.getProperty("url"));
 		fDriver.manage().window().maximize();
 		
 		Wait wait = new WebDriverWait(fDriver,50);
