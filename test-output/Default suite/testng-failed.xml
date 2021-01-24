@@ -3,15 +3,11 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="com.shopping.ShoppingAppFrameWork.DriverTest">
+      <class name="com.shopping.ShoppingAppFrameWork.AlertWindow">
         <methods>
-          <include name="afterTestMethod"/>
-          <include name="afterMethodMethod"/>
-          <include name="testMethod"/>
-          <include name="beforeTestMethod"/>
-          <include name="beforeMethodMethod"/>
+          <include name="newPage"/>
         </methods>
-      </class> <!-- com.shopping.ShoppingAppFrameWork.DriverTest -->
+      </class> <!-- com.shopping.ShoppingAppFrameWork.AlertWindow -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
