@@ -1,10 +1,6 @@
 package com.shopping.ShoppingAppFrameWork;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -16,12 +12,13 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
+import utils.AlertUtils;
+
 public class AlertWindow {
 
-	static WebDriver fDriver;
-	static WebElement e;
-	
-	
+	public static WebDriver fDriver;
+	public static WebElement e;
+
 	public static WebElement scroll(WebElement element, WebDriver driver)
 	  {
 		  JavascriptExecutor js = (JavascriptExecutor) driver;
@@ -41,19 +38,19 @@ public class AlertWindow {
 		
 		//********************************Window Handle*********************************//
 		fDriver.findElement(By.xpath("//div[@class='category-cards']/div[3]")).click();
+		
 		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]")));
 		//e= fDriver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]"));
 		//scroll(e,fDriver);
 		fDriver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/div[1]/ul[1]/li[1]")).click();
-		String parentWindow = fDriver.getWindowHandle();
-		System.out.println(parentWindow);
-		fDriver.findElement(By.id("tabButton")).click();
-		String childWindow = fDriver.getWindowHandle();
+		//********************************New Tab Handle*******************************//
+		AlertUtils.windowHandleUtils("tabButton");
 		
-		if(!parentWindow.equals(childWindow)) {
-			fDriver.switchTo().window(childWindow).close();
-		}
+		//*******************************New Window Handle***************************//
+		AlertUtils.windowHandleUtils("windowButton");
 		
+		//**********************************New Window Handle************************//
+		AlertUtils.windowHandleUtils("messageWindowButton");
 		
 		//*******************************Window Alert************************************//
 		
@@ -67,7 +64,8 @@ public class AlertWindow {
 		a.accept();
 		
 		fDriver.findElement(By.id("timerAlertButton")).click();
-		fDriver.manage().timeouts().implicitlyWait(6, TimeUnit.SECONDS);
+		wait.until(ExpectedConditions.alertIsPresent());
+		fDriver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		a.accept();
 		
 		fDriver.findElement(By.id("confirmButton")).click();
